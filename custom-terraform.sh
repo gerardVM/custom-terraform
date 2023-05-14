@@ -3,7 +3,7 @@
 
 ##### BUILD CUSTOM IMAGE #####
 
-function build-custom-image() {
+function build-custom-image() (
 
   function update-version { rm -f .${1}_* && echo "Created by cusom-containerized-terraform" > .${1}_${2}-${3} ; }
 
@@ -47,12 +47,12 @@ function build-custom-image() {
 
   # Update version tracker
   update-version tf $(find-version tf) $base_alias
-}
+)
 
 
 ##### EXECUTE CONTAINER #####
 
-function execute-custom-image {
+function execute-custom-image() (
 
   function no-image() { [[ "$(docker images -q ${1} 2> /dev/null)" == "" ]] ; }  
   function any-version-available() { find . -name .tf_* -print -quit | grep -q . || [ -v TF_VERSION ] ; }
@@ -81,7 +81,7 @@ function execute-custom-image {
       echo "Error! You need to set a TF_VERSION variable" && return 1
   fi
 
-}
+)
 
 
 ##### MAIN FUNCTIONS #####
