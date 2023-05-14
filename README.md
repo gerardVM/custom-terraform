@@ -31,6 +31,10 @@ Use your tools like you would normally do. You just need to set the version you 
 
 In order to track versions, a .tf_<version>-alpine file will be created in each directory you use your tools.
 
+## HOW TO STOP USING IT
+
+If you want to stop using this tool, just remove or comment the line you added to your ~/.bashrc file and remove the ~/.custom-terraform file.
+
 ## Contributing
 
 Pull requests are welcome
