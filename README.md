@@ -29,7 +29,7 @@ Be aware that you may have limitations if you are trying to perform complex oper
 
 Use your tools like you would normally do. You just need to set the version you want by setting the variable TF_VERSION.
 
-In order to track versions, a .tf_<version>-alpine file will be created in each directory you use your tools.
+In order to track versions, a .tf_\<version>-alpine file will be created in each directory you use your tools.
 
 ## HOW TO STOP USING IT
 
