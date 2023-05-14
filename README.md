@@ -13,7 +13,7 @@ You just need to have docker installed. Please, proceed as follows:
 1- Execute following command to use the last version of this tool.
 
 ```bash
-curl https://raw.githubusercontent.com/gerardVM/custom-containerized-terraform/main/custom-terraform.sh > ~/.custom-terraform
+curl https://raw.githubusercontent.com/gerardVM/custom-terraform/main/custom-terraform.sh > ~/.custom-terraform
 ```
 
 2- Include an extra line to your ~/.bashrc file to source your new configuration.
