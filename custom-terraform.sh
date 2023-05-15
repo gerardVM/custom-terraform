@@ -5,7 +5,7 @@
 
 function build-custom-image() (
 
-  function update-version { rm -f .${1}_* ; echo "Created by custom-containerized-terraform" > .${1}_${2}-${3} ; }
+  function update-version { rm .${1}_* 2> /dev/null ; echo "Created by custom-containerized-terraform" > .${1}_${2}-${3} ; }
 
   function show-tools-version {
     echo -e "Building image from ${1}... your setup is:" && sleep 0.2 && 
@@ -54,16 +54,15 @@ function build-custom-image() (
 
 function execute-custom-image() (
 
-  function no-image() { [[ "$(docker images -q ${1} 2> /dev/null)" == "" ]] ; }  
-  function any-version-available() { find . -name .tf_* -print -quit | grep -q . || [ -v TF_VERSION ] ; }
-  function find-version() { [ -v TF_VERSION ] && echo $TF_VERSION || ls .${1}_* | cut -d "_" -f 2 | cut -d "-" -f 1 ; }
+  function no-image() { [[ "$(docker images -q ${1} 2> /dev/null)" == "" ]] ; }
+  function find-version() { [ -v TF_VERSION ] && echo $TF_VERSION || ls .${1}_* 2> /dev/null | cut -d "_" -f 2 | cut -d "-" -f 1 ; }
   function get-distro() { docker run --rm --entrypoint cat -it ${1} /etc/os-release | grep ^ID= | cut -d "=" -f 2; }
 
   local base_image=${1}
   local image_name=${2}
   local entrypoint=${3}
 
-  if any-version-available tf ; then
+  if [ $(find-version tf) ] ; then
 
     local base_alias=$(echo $base_image | cut -d ":" -f 1)
     local image_id=$image_name:$(find-version tf)-$base_alias
