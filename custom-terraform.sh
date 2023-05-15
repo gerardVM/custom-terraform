@@ -5,7 +5,7 @@
 
 function build-custom-image() (
 
-  function update-version { rm -f .${1}_* && echo "Created by cusom-containerized-terraform" > .${1}_${2}-${3} ; }
+  function update-version { rm -f .${1}_* ; echo "Created by cusom-containerized-terraform" > .${1}_${2}-${3} ; }
 
   function show-tools-version {
     echo -e "Building image from ${1}... your setup is:" && sleep 0.2 && 
