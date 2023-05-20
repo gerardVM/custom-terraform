@@ -21,7 +21,7 @@ function build-custom-image() (
 
     echo -e "
     FROM --platform=linux/amd64 $base_image \n\nRUN $manager update
-    RUN $manager $install make mlocate bash openssh-client git
+    RUN $manager $install make mlocate bash openssh-client git jq yq
     
     # Terraform installation
 

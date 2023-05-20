@@ -23,7 +23,7 @@ echo "[ \$(echo \$(which docker)) ] && . ~/.custom-terraform" >> ~/.bashrc
 
 Once these commands are executed, open a new terminal and then you are good to go.
 
-Be aware that you may have limitations if you are trying to perform complex operations with these tools. Toolset is: make, mlocate, bash, openssh-client, and git
+Be aware that you may have limitations if you are trying to perform complex operations with these tools. Toolset is: make, mlocate, bash, openssh-client, git, jq and yq
 
 ## HOW TO USE IT
 
